@@ -95,8 +95,9 @@ def pic_factory_fire(d, x, y, s):
         wx = x + s * (0.14 + i * 0.20)
         d.rectangle([wx, y + s * 0.64, wx + s * 0.12, y + s * 0.78],
                     fill=(255, 220, 120))
-    flame(d, x + s * 0.34, y + s * 0.30, s * 0.52)
-    flame(d, x + s * 0.60, y + s * 0.34, s * 0.38)
+    flame(d, x + s * 0.30, y + s * 0.30, s * 0.52)
+    flame(d, x + s * 0.52, y + s * 0.26, s * 0.62)
+    flame(d, x + s * 0.70, y + s * 0.34, s * 0.38)
     for (gx, gy, gr) in [(0.30, 0.06, 0.10), (0.48, 0.02, 0.13),
                          (0.66, 0.05, 0.09)]:
         d.ellipse([x + s * (gx - gr), y + s * (gy - gr * 0.6),
@@ -229,9 +230,8 @@ def pic_chequer(d, x, y, s):
     for r in range(rows):
         for c in range(cols):
             if (r + c) % 2 == 0:
-                wave = math.sin(c * 0.7) * s * 0.02
-                d.rectangle([fx + c * cw, fy + r * ch + wave,
-                             fx + (c + 1) * cw, fy + (r + 1) * ch + wave],
+                d.rectangle([fx + c * cw, fy + r * ch,
+                             fx + (c + 1) * cw, fy + (r + 1) * ch],
                             fill=INK)
     d.rectangle([fx, fy, fx + fw, fy + fh], outline=INK, width=3)
     d.line([(x + s * 0.05, y + s * 0.96), (x + s * 0.95, y + s * 0.96)],
